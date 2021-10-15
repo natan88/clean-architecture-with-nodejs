@@ -4,12 +4,15 @@
   "description": "Personal project for study",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install",
+    "test": "jest",
     "lint": "npx standard",
     "lint-fix": "npx standard --fix"
   },
   "lint-staged": {
-    "*.js": ["standard"]
+    "*.js": [
+      "standard"
+    ]
   },
   "repository": {
     "type": "git",
@@ -22,6 +25,9 @@
   },
   "homepage": "https://github.com/natan88/clean-architecture-with-nodejs#readme",
   "devDependencies": {
+    "husky": "^7.0.2",
+    "jest": "^27.2.5",
+    "jest-cli": "^27.2.5",
     "lint-staged": "^11.2.3",
     "standard": "^16.0.4"
   }
