@@ -1,1 +1,3 @@
-# clean-architecture-with-nodejs
+# Clean architecture with nodejs
+
+Personal project for study
