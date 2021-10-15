@@ -1,6 +1,5 @@
 function Teste () {
   const x = '1233';
-  console.log(x)
+  console.log(x);
 }
-
 Teste()
