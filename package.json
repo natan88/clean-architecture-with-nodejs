@@ -9,6 +9,9 @@
     "lint": "npx standard",
     "lint-fix": "npx standard --fix"
   },
+  "standard": {
+    "env": ["jest"]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/natan88/clean-architecture-with-nodejs.git"
