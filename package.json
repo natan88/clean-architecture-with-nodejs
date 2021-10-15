@@ -4,7 +4,8 @@
   "description": "Personal project for study",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npx standard"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/natan88/clean-architecture-with-nodejs/issues"
   },
-  "homepage": "https://github.com/natan88/clean-architecture-with-nodejs#readme"
+  "homepage": "https://github.com/natan88/clean-architecture-with-nodejs#readme",
+  "devDependencies": {
+    "standard": "^16.0.4"
+  }
 }
