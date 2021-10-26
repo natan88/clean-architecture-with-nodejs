@@ -6,7 +6,7 @@
   "scripts": {
     "prepare": "husky install",
     "test": "jest --watchAll",
-    "test:staged": "jest",
+    "test:staged": "jest --passWithNoTests",
     "lint": "npx standard",
     "lint-fix": "npx standard --fix"
   },
