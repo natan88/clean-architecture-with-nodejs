@@ -5,7 +5,7 @@ const UnauthorizedError = require('../helpers/unauthorizedError')
 const ServerError = require('../helpers/serverError')
 
 const makeSut = () => {
-  const authUseCaseSpy = makeAuthuseCase()
+  const authUseCaseSpy = makeAuthUseCase()
   const emailValidatorSpy = makeEmailValidator()
   const sut = new LoginRouter(authUseCaseSpy, emailValidatorSpy)
   return {
@@ -26,7 +26,16 @@ const makeEmailValidator = () => {
   return emailValidatorSpy
 }
 
-const makeAuthuseCase = () => {
+const makeEmailValidatorWithError = () => {
+  class EmailValidatorSpy {
+    isValid (email) {
+      throw new Error()
+    }
+  }
+  return new EmailValidatorSpy()
+}
+
+const makeAuthUseCase = () => {
   class AuthUseCaseSpy {
     async auth (email, password) {
       this.email = email
@@ -155,7 +164,7 @@ describe('Login Router', () => {
   })
 
   test('Should return 500 if no EmailValidator is provided', async () => {
-    const authUseCaseSpy = makeAuthuseCase()
+    const authUseCaseSpy = makeAuthUseCase()
     const sut = new LoginRouter(authUseCaseSpy)
     const httpRequest = {
       body: {
@@ -169,7 +178,7 @@ describe('Login Router', () => {
   })
 
   test('Should return 500 if EmailValidator has no isValid method', async () => {
-    const authUseCaseSpy = makeAuthuseCase()
+    const authUseCaseSpy = makeAuthUseCase()
     const sut = new LoginRouter(authUseCaseSpy, {})
     const httpRequest = {
       body: {
@@ -198,6 +207,20 @@ describe('Login Router', () => {
   test('Should return 500 if AuthUseCase throws', async () => {
     const authUseCaseSpy = makeAuthUseCaseWithError()
     const sut = new LoginRouter(authUseCaseSpy)
+    const httpRequest = {
+      body: {
+        email: 'any_email@mail.com',
+        password: 'any_password'
+      }
+    }
+    const httpResponse = await sut.route(httpRequest)
+    expect(httpResponse.statusCode).toBe(500)
+  })
+
+  test('Should return 500 if EmailValidator throws', async () => {
+    const authUseCaseSpy = makeAuthUseCase()
+    const emailValidatorSpy = makeEmailValidatorWithError()
+    const sut = new LoginRouter(authUseCaseSpy, emailValidatorSpy)
     const httpRequest = {
       body: {
         email: 'any_email@mail.com',
