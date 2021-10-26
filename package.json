@@ -7,7 +7,7 @@
     "prepare": "husky install",
     "test": "jest --watch --silent --verbose --colors --noStackTrace",
     "test:staged": "jest --passWithNoTests --findRelatedTests --silent --noStackTrace",
-    "test:ci": "jest --coverage",
+    "test:ci": "jest --coverage --silent  --noStackTrace",
     "lint": "npx standard",
     "lint-fix": "npx standard --fix"
   },
