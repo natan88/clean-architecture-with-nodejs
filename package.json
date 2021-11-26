@@ -14,7 +14,9 @@
     "lint-fix": "npm lint -- --fix"
   },
   "standard": {
-    "env": ["jest"]
+    "env": [
+      "jest"
+    ]
   },
   "repository": {
     "type": "git",
@@ -26,7 +28,11 @@
     "url": "https://github.com/natan88/clean-architecture-with-nodejs/issues"
   },
   "homepage": "https://github.com/natan88/clean-architecture-with-nodejs#readme",
+  "dependencies": {
+    "validator": "^13.7.0"
+  },
   "devDependencies": {
+    "@types/validator": "^13.7.0",
     "husky": "^7.0.2",
     "jest": "^27.2.5",
     "jest-cli": "^27.2.5",
