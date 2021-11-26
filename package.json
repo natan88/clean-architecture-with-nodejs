@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "prepare": "husky install",
-    "test": "jest --watch --silent --verbose --colors --noStackTrace",
-    "test:staged": "jest --passWithNoTests --findRelatedTests --silent --noStackTrace",
-    "test:ci": "jest --coverage --silent  --noStackTrace",
+    "test": "jest --silent --verbose --colors --noStackTrace --passWithNoTests",
+    "test:unit": "npm test -- --watch",
+    "test:staged": "npm test -- --findRelatedTests",
+    "test:ci": "npm test -- --coverage",
     "lint": "npx standard",
-    "lint-fix": "npx standard --fix"
+    "lint-fix": "npm lint -- --fix"
   },
   "standard": {
     "env": ["jest"]
