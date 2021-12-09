@@ -30,6 +30,7 @@
   "homepage": "https://github.com/natan88/clean-architecture-with-nodejs#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "jsonwebtoken": "^8.5.1",
     "validator": "^13.7.0"
   },
   "devDependencies": {
